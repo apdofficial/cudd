@@ -5,6 +5,7 @@ target_include_directories(cudd PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 
 target_sources(cudd
         PUBLIC
+        ../config.h
         cuddZddMisc.c
         cuddZddPort.c
         cuddInteract.c
@@ -68,4 +69,12 @@ target_sources(cudd
         cuddAndAbs.c
         cuddAddWalsh.c
         cuddExport.c
+)
+
+target_link_libraries(cudd PRIVATE
+        util::util
+        st::st
+        mtr::mtr
+        epd::epd
+        dddmp::dddmp
 )
