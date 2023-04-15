@@ -334,8 +334,8 @@ ddClearLocal(
   @brief Marks as interacting all pairs of variables that appear in
   support.
 
-  @details If support[i == support[j] == 1, sets the (i,j) entry
-  of the interaction matrix to 1.]
+  @details If support[i] == support[j] == 1, sets the (i,j) entry
+  of the interaction matrix to 1.
 
   @sideeffect Clears support.
 
