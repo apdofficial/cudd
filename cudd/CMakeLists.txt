@@ -69,6 +69,7 @@ target_sources(cudd
         cuddAndAbs.c
         cuddAddWalsh.c
         cuddExport.c
+        dddmp.h
 )
 
 target_link_libraries(cudd PRIVATE
