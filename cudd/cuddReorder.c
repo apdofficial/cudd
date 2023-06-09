@@ -69,6 +69,8 @@
 
 /** \cond */
 
+#define STATS 0
+
 /*---------------------------------------------------------------------------*/
 /* Static function prototypes                                                */
 /*---------------------------------------------------------------------------*/
@@ -493,9 +495,16 @@ cuddSifting(
         x = table->perm[i];
         var[i].index = i;
         var[i].keys = table->subtables[x].keys;
+
     }
 
     util_qsort(var, size, sizeof(IndexKey), ddUniqueCompare);
+
+#if STATS
+    for (i = 0; i < size; i++) {
+        printf("level %d has %d nodes\n", var[i].index, var[i].keys);
+    }
+#endif
 
     /* Now sift. */
     for (i = 0; i < ddMin(table->siftMaxVar, size); i++) {
@@ -530,6 +539,9 @@ cuddSifting(
             (void) fprintf(table->out,"=");
         }
         fflush(table->out);
+#endif
+#if STATS
+        if (i > 3) exit(1);
 #endif
     }
 
