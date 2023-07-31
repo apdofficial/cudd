@@ -840,6 +840,7 @@ extern void Cudd_RecursiveDerefZdd(DdManager *table, DdNode *n);
 extern void Cudd_Deref(DdNode *node);
 extern int Cudd_CheckZeroRef(DdManager *manager);
 extern int Cudd_ReduceHeap(DdManager *table, Cudd_ReorderingType heuristic, int minsize);
+extern int Cudd_TestReduceHeap(DdManager *table, Cudd_ReorderingType heuristic);
 extern int Cudd_ShuffleHeap(DdManager *table, int *permutation);
 extern DdNode * Cudd_Eval(DdManager *dd, DdNode *f, int *inputs);
 extern DdNode * Cudd_ShortestPath(DdManager *manager, DdNode *f, int *weight, int *support, int *length);

@@ -108,6 +108,15 @@ static int ddCheckPermuation(DdManager *table, MtrNode *treenode, int *perm, int
 /* Definition of exported functions                                          */
 /*---------------------------------------------------------------------------*/
 
+int Cudd_TestReduceHeap(
+        DdManager *table /**< %DD manager */,
+        Cudd_ReorderingType heuristic /**< method used for reordering */)
+{
+    if (table->autoDyn && table->keys - (table->dead & table->countDead) >= table->nextDyn && table->maxReorderings > 0) {
+        return Cudd_ReduceHeap(table, heuristic, 0);
+    }
+    return 1;
+}
 
 /**
   @brief Main dynamic reordering routine.
