@@ -79,3 +79,5 @@ target_link_libraries(cudd PRIVATE
         epd::epd
         dddmp::dddmp
 )
+
+target_compile_options(cudd PRIVATE -fPIC)
